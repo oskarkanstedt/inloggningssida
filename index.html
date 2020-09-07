@@ -7,27 +7,29 @@
     <template id = minTemplate></template>>
 </head>
 <body>
-
+    <div id = content></div>
     <template id="startsidaTemplate">
-    <div id = startsidaDiv>
-    <h1>Välkommen</h1>
 
+    <h1>Välkommen</h1>
     <!--Skapa input för användarnamn samt lösenord-->
     <input id=inMatatNamn placeholder="Användarnamn">
     <input id=inMatatLösenord placeholder="Lösenord">
     <!--<button id=loggaIn>Logga in</button>-->
-    </div>
-    <br>
+        <br>
     <button onclick="loggaIn();" id=loggaIn>Logga in</button>
+
     </template>
 
+
     <template id="välkommenTemplate">
-        <h1>YOU DID IT!</h1>
+        <h1>YOU DID IT!</h1>        
     </template>
+
 
     <template id="felTemplate">
         <h1>Ditt användarnamn och/eller lösenord stämmer inte, försök igen.</h1>
     </template>
+
 
     <script src="script.js"></script>
 </body>

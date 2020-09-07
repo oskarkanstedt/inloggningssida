@@ -5,13 +5,15 @@ const inmatatNamn = document.getElementById("inMatatNamn");
 const inmatatLösenord = document.getElementById("inMatatLösenord");
 const felTemplate = document.getElementById("felTemplate")
 const startsidaTemplate = document.getElementById("startsidaTemplate")
-const startsidaDiv = document.getElementById("startsidaDiv")
+const content = document.getElementById("content")
 
-function applyTemplate(välkommenTemplate) {
-    startsidaDiv.innerHTML = ""
-    välkommenTemplate = välkommenTemplate.startsidaDiv.cloneNode(true)
-    startsidaDiv.appendChild(välkommenTemplate)
+function applyTemplate(template) {
+    content.innerHTML = ""
+    clonedTemplate = template.content.cloneNode(true) 
+    content.appendChild(clonedTemplate)
 }
+
+applyTemplate (startsidaTemplate)
 
 /*skapa en function för när användaren klickar på knappen
 document.getElementById("loggaIn").addEventListener
