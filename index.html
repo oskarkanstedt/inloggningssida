@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inloggningssida</title>
+    <template id = minTemplate></template>>
 </head>
 <body>
-    
+
+    <template id="startsidaTemplate">
+    <div id = startsidaDiv>
+    <h1>Välkommen</h1>
+
+    <!--Skapa input för användarnamn samt lösenord-->
+    <input id=inMatatNamn placeholder="Användarnamn">
+    <input id=inMatatLösenord placeholder="Lösenord">
+    <!--<button id=loggaIn>Logga in</button>-->
+    </div>
+    <br>
+    <button onclick="loggaIn();" id=loggaIn>Logga in</button>
+    </template>
+
+    <template id="välkommenTemplate">
+        <h1>YOU DID IT!</h1>
+    </template>
+
+    <template id="felTemplate">
+        <h1>Ditt användarnamn och/eller lösenord stämmer inte, försök igen.</h1>
+    </template>
+
+    <script src="script.js"></script>
 </body>
 </html>
