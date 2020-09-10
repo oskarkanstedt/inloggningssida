@@ -15,37 +15,44 @@ function applyTemplate(template) {
 
 applyTemplate (startsidaTemplate)
 
-document.getElementById("loggaIn").addEventListener("click", function(){
+document.getElementById("loggaIn").addEventListener("click", login)
+    function login(){    
+        const inMatatNamn = document.getElementById("inMatatNamn")
+        const inMatatLösenord = document.getElementById("inMatatLösenord")
+
+        if (inMatatNamn.value == namn, inMatatLösenord.value == lösenord) {
+            applyTemplate (välkommenTemplate)
+        }
+
+        else {
+            applyTemplate (felTemplate)
+        }
+}
+
+
+/* FUNGERAR document.getElementById("loggaIn").addEventListener("click", function(){
     const inMatatNamn = document.getElementById("inMatatNamn")
     const inMatatLösenord = document.getElementById("inMatatLösenord")
     if (inMatatNamn.value == namn, inMatatLösenord.value == lösenord){
         applyTemplate (välkommenTemplate)
+
+        document.getElementById("loggaUt").addEventListener("click", function(){
+            applyTemplate (startsidaTemplate)
+        })
+
     }
 
     else {
         applyTemplate (felTemplate)
+
+        document.getElementById("försökIgen").addEventListener("click", function(){
+            applyTemplate (startsidaTemplate)
+        })
+
     }
 
-});
+}); FUNGERAR*/ 
 
-/*skapa en function för när användaren klickar på knappen
-document.getElementById("loggaIn").addEventListener
-("click", function() {
-    if (inmatatNamn.value == namn, inmatatLösenord.value == lösenord) {
-        const clonedTemplateRätt = välkommenTemplate.content.cloneNode(true);
-        startsidaTemplate.innerHTML=""
-        startsidaTemplate.appendChild(clonedTemplateRätt)
-    }
-
-    else {
-        (inmatatNamn.value == namn, inmatatLösenord.value == lösenord) {
-            const clonedTemplateFel = felTemplate.content.cloneNode(true);
-            startsidaTemplate.innerHTML=""
-            startsidaTemplate.appendChild(clonedTemplateFel)
-    }
-
-
-})*/
 
 
 
