@@ -8,26 +8,29 @@
 </head>
 <body>
     <div id = content></div>
-    <template id="startsidaTemplate">
 
+    <template id="startsidaTemplate">
     <h1>Välkommen</h1>
     <!--Skapa input för användarnamn samt lösenord-->
     <input id=inMatatNamn placeholder="Användarnamn">
     <input id=inMatatLösenord placeholder="Lösenord">
-    <!--<button id=loggaIn>Logga in</button>-->
-        <br>
-    <button onclick="loggaIn();" id=loggaIn>Logga in</button>
-
+    <br>
+    <br>
+    <button id=loggaIn>Logga in</button>
     </template>
 
 
     <template id="välkommenTemplate">
         <h1>YOU DID IT!</h1>        
+        <br>
+        <button id ="loggaUt">Logga ut</button>
     </template>
 
 
     <template id="felTemplate">
         <h1>Ditt användarnamn och/eller lösenord stämmer inte, försök igen.</h1>
+        <br>
+        <button id="försökIgen">Försök igen</button>
     </template>
 
 

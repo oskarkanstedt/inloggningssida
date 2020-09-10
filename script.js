@@ -1,12 +1,12 @@
-//intiera const för användarnamn och lösenord
+//intiera const för användarnamn och lösenord, samt hämta templates och values från index
 const namn = "test";
 const lösenord = "1234";
-const inmatatNamn = document.getElementById("inMatatNamn");
-const inmatatLösenord = document.getElementById("inMatatLösenord");
 const felTemplate = document.getElementById("felTemplate")
 const startsidaTemplate = document.getElementById("startsidaTemplate")
 const content = document.getElementById("content")
+const välkommenTemplate = document.getElementById("välkommenTemplate")
 
+//clona template för att kunna använda detta som en mall för anrop sedan
 function applyTemplate(template) {
     content.innerHTML = ""
     clonedTemplate = template.content.cloneNode(true) 
@@ -14,6 +14,19 @@ function applyTemplate(template) {
 }
 
 applyTemplate (startsidaTemplate)
+
+document.getElementById("loggaIn").addEventListener("click", function(){
+    const inMatatNamn = document.getElementById("inMatatNamn")
+    const inMatatLösenord = document.getElementById("inMatatLösenord")
+    if (inMatatNamn.value == namn, inMatatLösenord.value == lösenord){
+        applyTemplate (välkommenTemplate)
+    }
+
+    else {
+        applyTemplate (felTemplate)
+    }
+
+});
 
 /*skapa en function för när användaren klickar på knappen
 document.getElementById("loggaIn").addEventListener
