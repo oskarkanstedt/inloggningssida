@@ -6,52 +6,68 @@ const startsidaTemplate = document.getElementById("startsidaTemplate")
 const content = document.getElementById("content")
 const välkommenTemplate = document.getElementById("välkommenTemplate")
 
-//clona template för att kunna använda detta som en mall för anrop sedan
+if (checklogin()){
+    applyTemplate (välkommenTemplate)
+    document.getElementById("loggaUt").addEventListener("click", logout)
+}
+
+ else {
+    applyTemplate (startsidaTemplate)
+    document.getElementById("loggaIn").addEventListener("click", login)
+ }
+
+//skapat funktion för templates för att kunna använda vid anrop av vyer
 function applyTemplate(template) {
     content.innerHTML = ""
     clonedTemplate = template.content.cloneNode(true) 
     content.appendChild(clonedTemplate)
 }
 
-applyTemplate (startsidaTemplate)
-
-document.getElementById("loggaIn").addEventListener("click", login)
-    function login(){    
-        const inMatatNamn = document.getElementById("inMatatNamn")
-        const inMatatLösenord = document.getElementById("inMatatLösenord")
-
-        if (inMatatNamn.value == namn, inMatatLösenord.value == lösenord) {
-            applyTemplate (välkommenTemplate)
-        }
-
-        else {
-            applyTemplate (felTemplate)
-        }
+//skapat funktion för att storea användarnamn och lösenord
+function store(namn1, lösenord1) {
+    localStorage.setItem("inMatatNamn", namn1)
+    localStorage.setItem("inMatatLösenord", lösenord1)
 }
 
-
-/* FUNGERAR document.getElementById("loggaIn").addEventListener("click", function(){
+//skapat en funktion med en ifsats som loggar in användaren om användarnamn och lösenord stämmer
+//annars skickas användaren till en felsida, localstorage sparar även variabel values
+function login(){    
     const inMatatNamn = document.getElementById("inMatatNamn")
     const inMatatLösenord = document.getElementById("inMatatLösenord")
-    if (inMatatNamn.value == namn, inMatatLösenord.value == lösenord){
+
+    if (inMatatNamn.value == namn && inMatatLösenord.value == lösenord) {
         applyTemplate (välkommenTemplate)
-
-        document.getElementById("loggaUt").addEventListener("click", function(){
-            applyTemplate (startsidaTemplate)
-        })
-
+        store (inMatatNamn.value && inMatatLösenord.value)    
+        document.getElementById("loggaUt").addEventListener("click", logout)   
     }
 
     else {
         applyTemplate (felTemplate)
-
-        document.getElementById("försökIgen").addEventListener("click", function(){
-            applyTemplate (startsidaTemplate)
-        })
-
+        document.getElementById("försökIgen").addEventListener("click", tillbaka)
     }
+}
 
-}); FUNGERAR*/ 
+//skapat en funktion för att komma tillbaka till startsidan om man har skrivit fel användarnamn eller lösenord
+function tillbaka() {
+    applyTemplate (startsidaTemplate)
+}
+
+//skapat en funktion för att ta bort värdena från localstorage
+function logout(){
+    localStorage.removeItem(inMatatNamn.value)
+    localStorage.removeItem(inMatatLösenord.value)
+    applyTemplate (startsidaTemplate)
+}
+
+//en funktion för att se om användaren är inloggad, alltså om användarnamn och lösenord
+//finns storeat i localstorage, om variablerna inte är tomma så är användaren inloggad
+function checklogin(){
+    const inMatatNamn = localStorage.getItem("inMatatNamn")
+    const inMatatLösenord = localStorage.getItem("inMatatLösenord")
+
+    return inMatatNamn.value == namn && inMatatLösenord.value == lösenord
+}
+
 
 
 
